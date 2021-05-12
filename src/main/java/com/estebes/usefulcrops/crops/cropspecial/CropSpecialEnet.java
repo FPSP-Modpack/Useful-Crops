@@ -1,6 +1,5 @@
 package com.estebes.usefulcrops.crops.cropspecial;
 
-import com.estebes.usefulcrops.crops.CropProperties;
 import com.estebes.usefulcrops.reference.Reference;
 import com.estebes.usefulcrops.util.EventListener;
 
@@ -12,7 +11,10 @@ import ic2.api.energy.EnergyNet;
 import ic2.api.energy.event.EnergyTileLoadEvent;
 import ic2.api.energy.event.EnergyTileUnloadEvent;
 import ic2.api.energy.tile.IEnergySource;
+import ic2.api.info.Info;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
@@ -20,7 +22,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class CropSpecialEnet extends CropCard {
-    private CropProperties cropProperties;
 
     public CropSpecialEnet() {
     }
@@ -37,7 +38,7 @@ public class CropSpecialEnet extends CropCard {
 
     @Override
     public String discoveredBy() {
-        return "Player";
+        return "Player, Aroma, Speiger";
     }
 
     @Override
@@ -134,11 +135,20 @@ public class CropSpecialEnet extends CropCard {
     	}
     }
     
+    @Override
+    public boolean onEntityCollision(ICropTile crop, Entity entity) {
+    	if (entity instanceof EntityLivingBase) {
+    		((EntityLivingBase) entity).attackEntityFrom(Info.DMG_ELECTRIC, crop.getGain());
+    		return ((EntityLivingBase) entity).isSprinting();
+    	}
+    	return false;
+    }
+    
     /**
      * This method returns the amount of EU the crop emits every tick.
      */
     private double producedEnergy(ICropTile crop) {
-    	return crop.getSize() == maxSize() ? 1D : 1D;
+    	return Math.min(crop.getGain() * crop.getGain(), 256.0D);
     }
     
     public class FakeTileEntity extends TileEntity implements IEnergySource {
