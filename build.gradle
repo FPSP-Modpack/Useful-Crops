@@ -35,9 +35,20 @@ repositories {
     }
 }
 
+configurations {
+    extraLibs
+}
+
 dependencies {
     compile 'net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev'
-    compile 'com.google.protobuf:protobuf-java:2.6.1'
+    extraLibs group: 'com.google.protobuf', name: 'protobuf-java', version: '2.6.1'
+    configurations.compile.extendsFrom(configurations.extraLibs)
+}
+
+jar {
+    from {
+        configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 processResources {
