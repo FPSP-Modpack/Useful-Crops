@@ -1,6 +1,18 @@
 package com.estebes.usefulcrops.util;
 
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.List;
+
+import javax.imageio.ImageIO;
+
 import com.google.common.base.Strings;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
@@ -12,14 +24,6 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public final class SpriteHelper {

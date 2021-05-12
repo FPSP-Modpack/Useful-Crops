@@ -1,9 +1,9 @@
 package com.estebes.usefulcrops.util;
 
+import java.util.ArrayList;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-
-import java.util.ArrayList;
 
 public class Util {
     public static NBTTagCompound getOrCreateNbtData(ItemStack itemStack) {

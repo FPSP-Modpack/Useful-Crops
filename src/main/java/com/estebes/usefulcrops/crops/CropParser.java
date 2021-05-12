@@ -1,14 +1,14 @@
 package com.estebes.usefulcrops.crops;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import com.estebes.usefulcrops.UsefulCrops;
 import com.estebes.usefulcrops.crops.Crops.CropInfo;
 import com.estebes.usefulcrops.crops.croptypes.CropFlowerType1;
 import com.estebes.usefulcrops.crops.croptypes.CropMushroomType1;
 import com.estebes.usefulcrops.crops.croptypes.CropPlantType1;
 import com.google.protobuf.TextFormat;
-
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class CropParser {
     public static Crops.CropsList.Builder cropList = Crops.CropsList.newBuilder();

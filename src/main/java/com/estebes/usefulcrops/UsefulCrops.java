@@ -1,7 +1,5 @@
 package com.estebes.usefulcrops;
 
-import net.minecraftforge.common.MinecraftForge;
-
 import com.estebes.usefulcrops.crops.CropParser;
 import com.estebes.usefulcrops.proxy.ServerProxy;
 import com.estebes.usefulcrops.reference.Reference;
@@ -13,6 +11,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class UsefulCrops {

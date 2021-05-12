@@ -4,6 +4,7 @@ import com.estebes.usefulcrops.crops.CropCommon;
 import com.estebes.usefulcrops.crops.CropProperties;
 import com.estebes.usefulcrops.reference.Reference;
 import com.estebes.usefulcrops.util.SpriteHelper;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import ic2.api.crops.ICropTile;

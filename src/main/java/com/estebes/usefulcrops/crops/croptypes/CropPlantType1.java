@@ -4,6 +4,7 @@ import com.estebes.usefulcrops.crops.CropProperties;
 import com.estebes.usefulcrops.reference.Reference;
 import com.estebes.usefulcrops.util.SpriteHelper;
 import com.estebes.usefulcrops.util.XorShiftRandom;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import ic2.api.crops.CropCard;

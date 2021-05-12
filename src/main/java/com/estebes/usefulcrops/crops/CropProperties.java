@@ -1,16 +1,17 @@
 package com.estebes.usefulcrops.crops;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.estebes.usefulcrops.crops.Crops.CropInfo;
 import com.estebes.usefulcrops.util.Util;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class CropProperties {
     private CropInfo cropInfo;
