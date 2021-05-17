@@ -1,6 +1,5 @@
 package com.estebes.usefulcrops.crops.cropspecial;
 
-import com.estebes.usefulcrops.crops.CropProperties;
 import com.estebes.usefulcrops.reference.Reference;
 
 import cpw.mods.fml.relauncher.Side;
@@ -13,12 +12,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 
 public class CropSpecialWTF extends CropCard {
-
-	private CropProperties cropProperties;
 
 	public CropSpecialWTF() {
 	}
@@ -45,7 +41,7 @@ public class CropSpecialWTF extends CropCard {
 
 	@Override
 	public String[] attributes() {
-		return null;
+		return new String[] {"Thunder", "Leaves", "Bad"};
 	}
 
 	@Override
@@ -119,17 +115,16 @@ public class CropSpecialWTF extends CropCard {
 	@SideOnly(Side.CLIENT)
 	public void registerSprites(IIconRegister iconRegister) {
 		this.textures = new IIcon[this.maxSize()];
-		for (int size = 1; size <= this.maxSize() - 1; size++) {
+		for (int size = 1; size <= this.maxSize(); size++) {
 			this.textures[(size - 1)] = iconRegister
-					.registerIcon(Reference.LOWERCASE_MOD_ID + ":" + "CropPlantType1_" + size);
+					.registerIcon(Reference.LOWERCASE_MOD_ID + ":crop_plant_1_" + size);
 		}
 	}
 
 	@Override
 	public void tick(ICropTile crop) {
-		TileEntity teCrop = (TileEntity) crop;
-		teCrop.getWorldObj().addWeatherEffect(
-				new EntityLightningBolt(teCrop.getWorldObj(), teCrop.xCoord, teCrop.yCoord, teCrop.zCoord));
+		crop.getWorld().addWeatherEffect(
+				new EntityLightningBolt(crop.getWorld(), crop.getLocation().posX, crop.getLocation().posY, crop.getLocation().posZ));
 	}
 
 	@Override

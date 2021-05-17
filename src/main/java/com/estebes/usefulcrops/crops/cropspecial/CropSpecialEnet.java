@@ -48,7 +48,7 @@ public class CropSpecialEnet extends CropCard {
 
     @Override
     public String[] attributes() {
-        return null;
+        return new String[] {"Electric", "Leaves", "Danger"};
     }
 
     @Override
@@ -122,16 +122,15 @@ public class CropSpecialEnet extends CropCard {
     @SideOnly(Side.CLIENT)
     public void registerSprites(IIconRegister iconRegister) {
         this.textures = new IIcon[this.maxSize()];
-        for (int size = 1; size <= this.maxSize() - 1; size++) {
-            this.textures[(size - 1)] = iconRegister.registerIcon(Reference.LOWERCASE_MOD_ID + ":" + "CropPlantType1_" + size);
+        for (int size = 1; size <= this.maxSize(); size++) {
+            this.textures[(size - 1)] = iconRegister.registerIcon(Reference.LOWERCASE_MOD_ID + ":crop_plant_1_" + size);
         }
     }
 
     @Override
     public void tick(ICropTile crop) {
-    	TileEntity te = (TileEntity)crop;
-    	if (EnergyNet.instance.getTileEntity(te.getWorldObj(), te.xCoord, te.yCoord, te.zCoord) == null) {
-    		MinecraftForge.EVENT_BUS.post(new EnergyTileLoadEvent(new FakeTileEntity(te)));
+    	if (EnergyNet.instance.getTileEntity(crop.getWorld(), crop.getLocation().posX, crop.getLocation().posY, crop.getLocation().posZ) == null) {
+    		MinecraftForge.EVENT_BUS.post(new EnergyTileLoadEvent(new FakeTileEntity((TileEntity) crop)));
     	}
     }
     
